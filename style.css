@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+main {
+    background-color: rgb(207, 207, 207);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#gameArea {
+    background-color: rgb(255, 255, 255);
+
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+
+    flex: 0 0 60%;
+    height: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#startGame {
+    padding: 10px 20px;
+
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+#dialogForCreatePlayer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 2em 3em;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+
+.dialogContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#boxForm {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+#colorGrid {
+    width: 80px;
+    height: 80px;
+    
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+#colorGrid div {
+    width: 20px;
+    height: 20px;
+}
