@@ -12,6 +12,7 @@ main {
     background-color: rgb(207, 207, 207);
 
     display: flex;
+    gap: 40px;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -64,6 +65,9 @@ main {
 #colorGrid {
     width: 80px;
     height: 80px;
+
+    border: 2px solid rgb(0, 0, 0);
+    box-sizing: content-box;
     
     display: grid;
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
@@ -71,4 +75,30 @@ main {
 #colorGrid div {
     width: 20px;
     height: 20px;
+
+    border: 1px solid rgb(0, 0, 0);
+}
+#colorGrid div:hover {
+    transform: scale(0.9);
+}
+
+
+
+
+
+
+
+#scoreArea {
+    background-color: rgb(255, 255, 255);
+
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+
+    padding: 2em 3em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    height: 80%;
 }
