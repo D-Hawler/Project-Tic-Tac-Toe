@@ -39,6 +39,40 @@ main {
     border-radius: 5px;
 }
 
+#gameBoard {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+}
+
+#cell0, #cell3 {
+    border-right: 2px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+#cell1, #cell4 {
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+#cell2, #cell5 {
+    border-left: 2px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+#cell6 {
+    border-right: 2px solid rgb(0, 0, 0);
+}
+
+#cell8 {
+    border-left: 2px solid rgb(0, 0, 0);
+}
+
+/* ---------------------------------------------------------- */
+
 #dialogForCreatePlayer {
     position: fixed;
     top: 50%;

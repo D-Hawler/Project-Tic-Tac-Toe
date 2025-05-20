@@ -68,14 +68,14 @@ function isPlayerNumber() {
 
 
  
-document.querySelector("#startGame").addEventListener("click", function() {
-    document.getElementById("dialogForCreatePlayer").showModal();
+// document.querySelector("#startGame").addEventListener("click", function() {
+//     document.getElementById("dialogForCreatePlayer").showModal();
 
-    const namePlaer = document.querySelector("#name");
-    document.getElementById("create").addEventListener("click", function(event) {
-        event.preventDefault();
-        if (namePlaer.value !== "" && namePlaer.value.length >= 3) {
+//     const namePlaer = document.querySelector("#name");
+//     document.getElementById("create").addEventListener("click", function(event) {
+//         event.preventDefault();
+//         if (namePlaer.value !== "" && namePlaer.value.length >= 3) {
             
-        };
-    });
-});
+//         };
+//     });
+// });
