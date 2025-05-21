@@ -1,3 +1,8 @@
+:root {
+    --color-border: rgb(0, 0, 0);
+}
+
+
 * {
     padding: 0;
     margin: 0;
@@ -21,22 +26,47 @@ main {
 #gameArea {
     background-color: rgb(255, 255, 255);
 
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid var(--color-border);
     box-shadow: 0 4px 24px rgba(0,0,0,0.2);
 
     flex: 0 0 60%;
     height: 80%;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 #startGame {
     padding: 10px 20px;
 
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid var(--color-border);
     border-radius: 5px;
+}
+
+#controlPanel {
+    padding: 10px 20px;
+
+    width: 100%;
+
+    border-width: 2px 0;
+    border-style: solid;
+    border-color: var(--color-border);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    margin: 5px 0 5px 20px;
+
+    text-align: end;
+
+    list-style: none;
+}
+li:first-child {
+    margin-bottom: 10px;
 }
 
 #gameBoard {
@@ -47,28 +77,33 @@ main {
 .cell {
     width: 80px;
     height: 80px;
+
+    font-size: 2.5em;
+
+    align-content: center;
+    text-align: center;
 }
 
 #cell0, #cell3 {
-    border-right: 2px solid rgb(0, 0, 0);
-    border-bottom: 2px solid rgb(0, 0, 0);
+    border-right: 2px solid var(--color-border);
+    border-bottom: 2px solid var(--color-border);
 }
 
 #cell1, #cell4 {
-    border-bottom: 2px solid rgb(0, 0, 0);
+    border-bottom: 2px solid var(--color-border);
 }
 
 #cell2, #cell5 {
-    border-left: 2px solid rgb(0, 0, 0);
-    border-bottom: 2px solid rgb(0, 0, 0);
+    border-left: 2px solid var(--color-border);
+    border-bottom: 2px solid var(--color-border);
 }
 
 #cell6 {
-    border-right: 2px solid rgb(0, 0, 0);
+    border-right: 2px solid var(--color-border);
 }
 
 #cell8 {
-    border-left: 2px solid rgb(0, 0, 0);
+    border-left: 2px solid var(--color-border);
 }
 
 /* ---------------------------------------------------------- */
@@ -100,7 +135,7 @@ main {
     width: 80px;
     height: 80px;
 
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid var(--color-border);
     box-sizing: content-box;
     
     display: grid;
@@ -110,29 +145,8 @@ main {
     width: 20px;
     height: 20px;
 
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid var(--color-border);
 }
 #colorGrid div:hover {
     transform: scale(0.9);
-}
-
-
-
-
-
-
-
-#scoreArea {
-    background-color: rgb(255, 255, 255);
-
-    border: 2px solid rgb(0, 0, 0);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
-
-    padding: 2em 3em;
-
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    height: 80%;
 }
