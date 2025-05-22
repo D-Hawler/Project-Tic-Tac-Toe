@@ -8,6 +8,16 @@ startGameButton.addEventListener("click", function () {
             document.body.insertAdjacentHTML('beforeend', html);
             document.querySelector("#dialogForCreatePlayer").showModal();
 
+            document.querySelector("#dialogForCreatePlayer").addEventListener('cancel', (e) => {
+                    e.preventDefault();
+                });
+                document.querySelector("#dialogForCreatePlayer").addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                    }
+                });
+
             function createColorGrid() {
                 const colors = [
                     "#D32F2F", // насыщенно-красный
@@ -86,7 +96,7 @@ startGameButton.addEventListener("click", function () {
                         const arrayItems = [items[0], items[1]];
                         const currentPlayer = ["X", "O"];
                         for (let i = 0; i < 2; i++) {
-                            arrayItems[i].textContent = `${players[i].namePlaer} (${currentPlayer[i]}): 0`;
+                            arrayItems[i].textContent = `${players[i].namePlaer} (${currentPlayer[i]}): 000`;
                             arrayItems[i].style.color = players[i].playerColor;
                         };
                     };
@@ -120,7 +130,6 @@ startGameButton.addEventListener("click", function () {
                             checkWin(runningOrder);
 
                             cell.textContent = runningOrder;
-                            console.log(systemGameBoard);
                         };
                     };
                 });
@@ -160,7 +169,6 @@ function getTurn(cell, currentPlayer) {
 };
 // Process of movement
 
-
 let playersScore = [0, 0];
 function checkWin(runningOrder) {
     const winningCombinations = [
@@ -184,34 +192,42 @@ function checkWin(runningOrder) {
         const items = document.querySelectorAll("#controlPanel li");
         const arrayItems = [items[0], items[1]];
         const textItems = [arrayItems[0].textContent, arrayItems[1].textContent];
+ 
+        playersScore[runningOrder]++;
+        for (i = 0; i < 2; i++) {
+            if (playersScore[i] >= 10) {
+                sliceNumber = -2;
+                if (playersScore[i] >= 100) {
+                    sliceNumber = -3;
+                };
+            } else {
+                sliceNumber = -1;
+            };
+            arrayItems[i].textContent = `${textItems[i].slice(0, sliceNumber)}${playersScore[i]}`
+            if (playersScore[0] === 999 || playersScore[1] === 999) {
+                Object.freeze(playersScore);
 
-        // playersScore[runningOrder]++;
-        // let sliceQuantity = -1;
-        // for (i = 0; i < 2; i++) {
-        //     arrayItems[runningOrder].textContent = `${textItems[runningOrder].slice(0, sliceQuantity)} ${playersScore[runningOrder]}`;
-        //     if (playersScore[i] >= 10) {
-        //         sliceQuantity = -2;
-        //         for (let i = 0; i < 2; i++) {
-        //                 if (playersScore[i] < 10) {
-        //                     arrayItems[runningOrder].textContent = `${textItems[runningOrder].slice(0, -1)} 0${playersScore[runningOrder]}`;
-        //                 };
-        //             };
-        //         if (playersScore[i] >= 100) {
-        //             sliceQuantity = -3;
-        //             for (let i = 0; i < 2; i++) {
-        //                 if (playersScore[i] < 10) {
-        //                     if (playersScore[i] < 10) {
-        //                         arrayItems[runningOrder].textContent = `${textItems[runningOrder].slice(0, -1)} 00${playersScore[runningOrder]}`;
-        //                         if (playersScore[i] < 100) {
-        //                             arrayItems[runningOrder].textContent = `${textItems[runningOrder].slice(0, -2)} 0${playersScore[runningOrder]}`;
-        //                         };
-        //                     };
-        //                 };
-        //             };
-        //         };
-        //     };
-        // };
-        // Redo this part || Redo this part || Redo this part || Redo this part
+                const secretMessage = document.createElement("dialog");
+
+                const secretText = document.createElement("h1");
+                secretText.textContent = "You found the secret message, you must have worked very hard to reach it.";
+
+                secretMessage.appendChild(secretText);
+                secretMessage.addEventListener('cancel', (e) => {
+                    e.preventDefault();
+                });
+                secretMessage.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                    }
+                });
+
+                document.body.appendChild(secretMessage);
+
+                secretMessage.showModal();
+            };
+        };
 
         gameOver = true;
     };
